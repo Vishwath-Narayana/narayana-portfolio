@@ -1,5 +1,5 @@
 ---
-title: Opus 5.5 and what people are making with it
+title: Opus 5.5 and what people build with it
 date: 2026-10-02
 tag: Technology
 summary: A new model, and what it is changing for the people who build with it.

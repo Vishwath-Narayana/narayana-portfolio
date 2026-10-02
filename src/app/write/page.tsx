@@ -26,13 +26,11 @@ export default function Page() {
             <li key={p.slug} data-reveal className="border-b border-line">
               <Link
                 href={`/write/${p.slug}`}
-                className="group grid gap-3 py-8 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)_minmax(0,1.4fr)] md:items-baseline md:gap-10 md:py-12"
+                className="group grid gap-3 py-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,2.4fr)_minmax(0,1.2fr)] md:items-baseline md:gap-10 md:py-12"
               >
                 <p className="font-mono text-xs text-muted md:text-sm">{formatDate(p.date)}</p>
-                <div>
-                  <h2 className="display text-[clamp(1.9rem,3.6vw,3.6rem)] transition-transform duration-700 [transition-timing-function:var(--ease-out)] md:group-hover:translate-x-3">
-                    {p.title}
-                  </h2>
+                <div className="transition-transform duration-700 [transition-timing-function:var(--ease-out)] md:group-hover:translate-x-3">
+                  <h2 className="display text-balance text-[clamp(1.9rem,3.6vw,3.6rem)]">{p.title}</h2>
                   <p className="mt-3 max-w-[46ch] text-base text-muted">{p.summary}</p>
                 </div>
                 <p className="font-mono text-xs text-muted md:text-right md:text-sm">

@@ -18,7 +18,7 @@ export default function FrameIntro() {
             moment of the day, before the light changes.
           </p>
           <p data-reveal>
-            It started as a hobby and became part of my work too: I have shot and edited content for brands and for
+            It started as a hobby and became part of my work too: I have shot and edited content for a company and for
             my college. It is also where my eye for design comes from.
           </p>
           <p data-reveal className="text-muted">

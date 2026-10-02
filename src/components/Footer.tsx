@@ -26,14 +26,16 @@ export default function Footer() {
       <div className="mt-24 grid gap-10 border-t border-line pt-6 text-sm md:mt-40 md:grid-cols-3">
         <div>
           <p className="text-muted">Elsewhere</p>
-          <a
-            href="https://github.com/Vishwath-Narayana"
-            target="_blank"
-            rel="noreferrer"
-            className="link-line mt-1 inline-block"
-          >
-            GitHub
-          </a>
+          <div className="mt-1 flex gap-5">
+            {[
+              ["GitHub", "https://github.com/Vishwath-Narayana"],
+              ["LinkedIn", "https://www.linkedin.com/in/vishwath-t-3563702a0/"],
+            ].map(([name, href]) => (
+              <a key={name} href={href} target="_blank" rel="noreferrer" className="link-line inline-block">
+                {name}
+              </a>
+            ))}
+          </div>
         </div>
         <div>
           <p className="text-muted">Based in</p>

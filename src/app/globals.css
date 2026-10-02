@@ -154,3 +154,10 @@ body::after {
     scroll-behavior: auto !important;
   }
 }
+
+/* Hovering one row of a list dims the others. */
+@media (hover: hover) {
+  .dim-siblings:hover > li:not(:hover):not([aria-hidden]) {
+    opacity: 0.32;
+  }
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { TransitionLink } from "./Transition";
 import ThemeToggle from "./ThemeToggle";
@@ -13,9 +14,22 @@ const links = [
 
 export default function Nav() {
   const pathname = usePathname();
+  const [solid, setSolid] = useState(false);
+
+  // Once the page has moved, the bar gets a solid ground so nothing runs through it.
+  useEffect(() => {
+    const onScroll = () => setSolid(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 text-white mix-blend-difference">
+    <header className="fixed inset-x-0 top-0 z-50 text-fg">
+      <div
+        aria-hidden
+        className={`absolute inset-0 -z-10 bg-bg transition-opacity duration-500 ${solid ? "opacity-100" : "opacity-0"}`}
+      />
       <div className="flex items-center justify-between px-5 py-4 md:px-10 md:py-6">
         <TransitionLink href="/" className="text-sm font-medium tracking-tight">
           <span className="sm:hidden">Vishwath</span>

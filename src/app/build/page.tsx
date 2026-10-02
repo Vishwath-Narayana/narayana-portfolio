@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import StubPage from "@/components/StubPage";
+import BuildMotion from "@/components/BuildMotion";
+import Journey from "@/components/build/Journey";
+import Skills from "@/components/build/Skills";
+import Projects from "@/components/build/Projects";
 
-export const metadata: Metadata = { title: "Build" };
+export const metadata: Metadata = {
+  title: "Build",
+  description:
+    "From UI and UX design to full-stack development to data engineering: the journey, the skills and the projects.",
+};
 
 export default function Page() {
-  return <StubPage title="Build" note="Projects, pipelines and the systems behind them. Case studies are next." />;
+  return (
+    <>
+      <BuildMotion />
+      <Journey />
+      <Skills />
+      <Projects />
+    </>
+  );
 }

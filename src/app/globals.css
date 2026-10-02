@@ -50,6 +50,7 @@ html[data-theme="light"] .flip {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-living: "Bodoni Moda Variable", "Bodoni Moda", "Times New Roman", serif;
 }
 
 html {
@@ -151,5 +152,12 @@ body::after {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Hovering one row of a list dims the others. */
+@media (hover: hover) {
+  .dim-siblings:hover > li:not(:hover):not([aria-hidden]) {
+    opacity: 0.55;
   }
 }

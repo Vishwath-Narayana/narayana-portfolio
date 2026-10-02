@@ -27,8 +27,8 @@ export const years: Year[] = [
     title: "Joint Secretary, and a first internship",
     lines: [
       "Led department-level technical events, workshops and student coordination.",
-      "From January to March I was a Social Growth Intern at Poditivity: Figma wireframes and prototypes, campaigns, photography, videography and the content calendar.",
-      "At SAiL I became the videographer, photographer and content strategist for college-wide events.",
+      "Spent January to March as a Social Growth Intern at Poditivity.",
+      "Took on photography, video and content for SAiL, the college innovation and leadership group.",
     ],
   },
   {
@@ -46,8 +46,53 @@ export const years: Year[] = [
   },
 ];
 
-export const quiet =
-  "Also: Google Cloud Computing Foundations, Cloud Load Balancing, Secure Network Design and Data Preparation for ML APIs. Shortlisted in the internal rounds of Smart India Hackathon.";
+export const education = {
+  school: "Kakatiya Institute of Technology & Science (KITSW), Warangal",
+  degree: "B.Tech, Computer Science and Engineering",
+  period: "2023 to 2027",
+  note: "CGPA 8.35",
+};
+
+export const certifications = [
+  {
+    name: "Google Cloud Computing Foundations",
+    detail: "Four-course series: cloud fundamentals, infrastructure, networking and security, data, ML and AI.",
+  },
+  { name: "Google Cloud: Implementing Cloud Load Balancing" },
+  { name: "Google Cloud: Secure Network Design" },
+  { name: "Google Cloud: Data Preparation for ML APIs" },
+];
+
+export const skills: { label: string; items: string }[] = [
+  { label: "Languages", items: "Python, JavaScript, SQL" },
+  { label: "Data engineering", items: "ETL pipelines, PySpark, Apache Airflow, AWS Glue, data lakes" },
+  { label: "Databases", items: "MongoDB, MongoDB Atlas, Amazon RDS, MySQL, Redis" },
+  { label: "Cloud and DevOps", items: "AWS (EC2, S3, IAM, Lambda, RDS, Glue, Redshift), Docker, Linux, shell scripting, Git, GitHub, Vercel" },
+  { label: "Backend", items: "Node.js, Express.js, REST APIs, WebSocket (Socket.io), JWT, RBAC" },
+  { label: "Frontend", items: "React, Next.js, HTML, CSS, Tailwind CSS, responsive design, Framer Motion" },
+  { label: "Design", items: "Figma, wireframing, prototyping, user experience design" },
+  { label: "Tools", items: "Postman, Cloudinary, Render, VS Code" },
+];
+
+export const experience = {
+  role: "Social Growth Intern",
+  org: "Poditivity",
+  place: "Remote",
+  period: "January to March 2025",
+  points: [
+    "Led UI and UX work, drawing wireframes and prototypes in Figma.",
+    "Planned content and ran campaigns, including photography, videography and editing.",
+    "Helped set the brand strategy and content calendar so the look and message stayed consistent.",
+  ],
+};
+
+export const activities = [
+  { role: "President", org: "CSE Association, KITSW", note: "Current." },
+  { role: "Joint Secretary", org: "CSE Association, KITSW, third year", note: "Led department-level technical events, workshops and student coordination." },
+  { role: "Executive Member", org: "CSE Association, KITSW, second year", note: "Helped organise technical fests and inter-department activities." },
+  { role: "Videographer, Photographer and Content Strategist", org: "SAiL, KITSW", note: "Produced multimedia content for college-wide innovation and leadership events." },
+  { role: "Smart India Hackathon", org: "Internal rounds", note: "Shortlisted. Rapid prototyping under a deadline." },
+];
 
 export type Off = { line: string; href: string; cta: string };
 

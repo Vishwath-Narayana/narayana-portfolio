@@ -36,7 +36,7 @@ export default async function Page({ params }: Props) {
   ].filter(([, v]) => v) as [string, string][];
 
   return (
-    <main className="relative flex min-h-svh flex-col px-5 pb-8 pt-24 md:px-10 md:pt-28">
+    <div className="relative flex min-h-svh flex-col px-5 pb-8 pt-24 md:px-10 md:pt-28">
       <PhotoKeys prev={`/frame/${prev.id}`} next={`/frame/${next.id}`} />
       <div className="flex items-center justify-between text-sm">
         <Link href="/frame" className="link-line pb-0.5">
@@ -94,6 +94,6 @@ export default async function Page({ params }: Props) {
           <p className="self-end text-sm text-muted">No camera data was saved with this photo.</p>
         )}
       </div>
-    </main>
+    </div>
   );
 }

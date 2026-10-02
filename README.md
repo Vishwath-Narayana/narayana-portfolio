@@ -28,7 +28,7 @@ npm run dev
 
 ## Adding photos
 
-1. Export each photo as a JPG, about 2000 px on the long edge, under 2 MB, **with metadata kept** (Lightroom: Metadata → "All"; phone: don't send through WhatsApp or Instagram, which strip it).
-2. Put the files in `public/photos/` and delete the `sample-*.jpg` placeholders.
-3. Optional: add a title and place per file in `public/photos/captions.json`.
-4. Run `npm run dev`. Camera, lens, focal length, aperture, shutter and ISO are read from each file automatically (`scripts/photos.mjs`).
+1. Put originals (JPG, PNG, HEIC, WebP) in `photos-source/` (gitignored).
+2. `pip install pillow pillow-heif`, then `npm run photos`.
+3. The script writes web JPEGs to `public/photos/` and `src/data/photos.generated.json`. Camera, focal length, aperture, shutter and ISO are read from EXIF. **All metadata, including GPS, is stripped from the published files.**
+4. Titles, chapters, places and manual setting overrides (for photos with no EXIF) live in `src/data/captions.json`.

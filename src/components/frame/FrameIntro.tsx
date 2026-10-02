@@ -1,10 +1,6 @@
-import { photos } from "@/data/photos";
-
 export default function FrameIntro() {
-  const cameras = Array.from(new Set(photos.map((p) => p.camera).filter(Boolean)));
-
   return (
-    <section className="px-5 pb-20 pt-32 md:px-10 md:pb-32 md:pt-44">
+    <section className="px-5 pb-16 pt-32 md:px-10 md:pb-24 md:pt-44">
       <p data-reveal className="text-sm text-muted">
         Frame
       </p>
@@ -26,17 +22,10 @@ export default function FrameIntro() {
             my college. It is also where my eye for design comes from.
           </p>
           <p data-reveal className="text-muted">
-            Under every photo is what I set the camera to. Open one to see it larger, with everything the file
+            Under each photo is what I set the camera to. Open one to see it larger, with everything the file
             remembers.
           </p>
         </div>
-
-        <p data-reveal className="text-sm text-muted">
-          The roll
-        </p>
-        <p data-reveal className="max-w-[54ch] font-mono text-xs leading-relaxed text-muted md:text-sm">
-          {photos.length} photographs{cameras.length > 0 && <>  /  shot on {cameras.join(", ")}</>}
-        </p>
       </div>
     </section>
   );

@@ -22,6 +22,23 @@ export default function FrameMotion() {
         onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, duration: 1.2, ease: "expo.out", stagger: 0.1 }),
       });
 
+      const rules = gsap.utils.toArray<HTMLElement>("[data-draw]");
+      gsap.set(rules, { scaleX: 0, transformOrigin: "left" });
+      ScrollTrigger.batch(rules, {
+        start: "top 94%",
+        once: true,
+        onEnter: (batch) => gsap.to(batch, { scaleX: 1, duration: 1.5, ease: "expo.out", stagger: 0.12 }),
+      });
+
+      const thumbs = gsap.utils.toArray<HTMLElement>("[data-thumb]");
+      gsap.set(thumbs, { opacity: 0, y: 12 });
+      ScrollTrigger.batch(thumbs, {
+        start: "top 95%",
+        once: true,
+        onEnter: (batch) =>
+          gsap.to(batch, { opacity: 1, y: 0, duration: 0.9, ease: "expo.out", stagger: 0.035, clearProps: "transform,opacity" }),
+      });
+
       gsap.utils.toArray<HTMLElement>("[data-plate]").forEach((plate) => {
         const mask = plate.querySelector<HTMLElement>("[data-mask]");
         const img = plate.querySelector<HTMLElement>("[data-img]");

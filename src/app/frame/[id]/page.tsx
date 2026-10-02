@@ -36,7 +36,7 @@ export default async function Page({ params }: Props) {
   ].filter(([, v]) => v) as [string, string][];
 
   return (
-    <main className="flex min-h-svh flex-col px-5 pb-8 pt-24 md:px-10 md:pt-28">
+    <main className="relative flex min-h-svh flex-col px-5 pb-8 pt-24 md:px-10 md:pt-28">
       <PhotoKeys prev={`/frame/${prev.id}`} next={`/frame/${next.id}`} />
       <div className="flex items-center justify-between text-sm">
         <Link href="/frame" className="link-line pb-0.5">
@@ -52,17 +52,25 @@ export default async function Page({ params }: Props) {
         </div>
       </div>
 
-      <div className="relative my-6 min-h-[60svh] flex-1 md:my-8">
+      {/* Fixed-height stage so the page does not jump between photos of different shapes. */}
+      <div className="my-6 flex h-[62svh] items-center justify-center md:my-8 md:h-[66svh]">
         <Image
+          key={p.id}
           src={p.src}
           alt={p.title}
-          fill
+          width={p.width}
+          height={p.height}
           priority
           sizes="100vw"
-          placeholder="blur"
-          blurDataURL={p.blur}
-          className="object-contain"
+          className="h-auto max-h-full w-auto max-w-full object-contain"
         />
+      </div>
+
+      {/* Warm the neighbours so Next and Previous show the picture straight away. */}
+      <div aria-hidden className="pointer-events-none absolute size-0 overflow-hidden opacity-0">
+        {[prev, next].map((n) => (
+          <Image key={n.id} src={n.src} alt="" width={n.width} height={n.height} sizes="100vw" loading="eager" />
+        ))}
       </div>
 
       <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-16">

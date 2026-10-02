@@ -4,7 +4,7 @@ export default function FrameIntro() {
       <p data-reveal className="text-sm text-muted">
         Frame
       </p>
-      <h1 data-reveal className="display mt-4 max-w-[13em] text-balance text-[clamp(2.4rem,5.4vw,5.6rem)]">
+      <h1 data-reveal className="display mt-4 max-w-[13em] text-balance !leading-[1.04] text-[clamp(2.4rem,5.4vw,5.6rem)]">
         I photograph what light does to ordinary places.
       </h1>
 

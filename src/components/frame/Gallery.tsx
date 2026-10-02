@@ -9,9 +9,9 @@ export default function Gallery() {
       <p data-reveal className="text-sm text-muted">
         The roll
       </p>
-      <ul className="dim-siblings mt-5 grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-8 md:gap-3">
+      <ul className="mt-5 grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-8 md:gap-3">
         {photos.map((p) => (
-          <li key={p.id} data-thumb className="transition-opacity duration-500">
+          <li key={p.id} data-thumb className="group">
             <Link
               href={`/frame/${p.id}`}
               aria-label={`Open ${p.title}`}
@@ -24,7 +24,7 @@ export default function Gallery() {
                 sizes="(min-width: 768px) 12vw, 25vw"
                 placeholder="blur"
                 blurDataURL={p.blur}
-                className="object-cover"
+                className="object-cover transition-transform duration-700 [transition-timing-function:var(--ease-out)] group-hover:scale-[1.04]"
               />
             </Link>
           </li>

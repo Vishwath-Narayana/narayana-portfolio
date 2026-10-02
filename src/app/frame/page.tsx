@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
-import StubPage from "@/components/StubPage";
+import FrameMotion from "@/components/FrameMotion";
+import FrameIntro from "@/components/frame/FrameIntro";
+import Gallery from "@/components/frame/Gallery";
 
-export const metadata: Metadata = { title: "Frame" };
+export const metadata: Metadata = {
+  title: "Frame",
+  description: "Photographs of ordinary light, each with the camera settings it was taken with.",
+};
 
 export default function Page() {
-  return <StubPage title="Frame" note="The photo gallery is next, with images from Cloudinary and a morph from grid to full frame." />;
+  return (
+    <>
+      <FrameMotion />
+      <FrameIntro />
+      <Gallery />
+    </>
+  );
 }

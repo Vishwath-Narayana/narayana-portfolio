@@ -25,3 +25,10 @@ npm run dev
 
 - Done: design system, theme invert, iris route transition, landing page
 - Next: Frame (gallery), Build (case studies), Write (MDX blog), About and contact
+
+## Adding photos
+
+1. Export each photo as a JPG, about 2000 px on the long edge, under 2 MB, **with metadata kept** (Lightroom: Metadata → "All"; phone: don't send through WhatsApp or Instagram, which strip it).
+2. Put the files in `public/photos/` and delete the `sample-*.jpg` placeholders.
+3. Optional: add a title and place per file in `public/photos/captions.json`.
+4. Run `npm run dev`. Camera, lens, focal length, aperture, shutter and ISO are read from each file automatically (`scripts/photos.mjs`).

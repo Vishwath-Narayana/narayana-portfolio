@@ -1,0 +1,12 @@
+{
+  "_about": "Optional. Add one entry per photo, keyed by file name. Camera, lens and settings are read from the photo's own metadata.",
+  "sample-01.jpg": { "title": "Placeholder one", "place": "Warangal" },
+  "sample-02.jpg": { "title": "Placeholder two", "place": "Warangal" },
+  "sample-03.jpg": { "title": "Placeholder three", "place": "Warangal" },
+  "sample-04.jpg": { "title": "Placeholder four", "place": "Warangal" },
+  "sample-05.jpg": { "title": "Placeholder five", "place": "Warangal" },
+  "sample-06.jpg": { "title": "Placeholder six", "place": "Warangal" },
+  "sample-07.jpg": { "title": "Placeholder seven", "place": "Warangal" },
+  "sample-08.jpg": { "title": "Placeholder eight", "place": "Warangal" },
+  "sample-09.jpg": { "title": "Placeholder nine", "place": "Warangal" }
+}

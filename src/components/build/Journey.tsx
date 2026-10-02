@@ -1,41 +1,43 @@
 import { journey } from "@/data/build";
 
-/** The journey as one line down the page with three stops on it. */
+/** The journey as one line down the left edge with three stops on it. */
 export default function Journey() {
   return (
-    <section className="px-5 py-24 md:px-10 md:py-40">
-      <h2 data-reveal className="display max-w-[11em] text-balance text-[clamp(2.6rem,6vw,6.2rem)]">
+    <section className="px-5 pb-20 pt-32 md:px-10 md:pb-32 md:pt-44">
+      <p data-reveal className="text-sm text-muted">
+        Build
+      </p>
+      <h1 data-reveal className="display mt-4 max-w-[14em] text-balance text-[clamp(2.4rem,4.6vw,4.8rem)]">
         I started by drawing it. Now I build what it runs on.
-      </h2>
+      </h1>
 
-      <div data-line-root className="relative mt-20 md:mt-32 md:pl-[24vw]">
-        {/* the line */}
-        <div aria-hidden className="absolute bottom-0 left-[3px] top-2 w-px bg-line md:left-[calc(24vw-24px)]" />
-        <div
-          aria-hidden
-          data-line
-          className="absolute bottom-0 left-[3px] top-2 w-px bg-fg md:left-[calc(24vw-24px)]"
-        />
+      <div data-line-root className="relative mt-14 pl-7 md:mt-24 md:pl-10">
+        <div aria-hidden className="absolute bottom-0 left-[3px] top-2 w-px bg-line" />
+        <div aria-hidden data-line className="absolute bottom-0 left-[3px] top-2 w-px bg-fg" />
 
-        <ol className="space-y-24 pl-8 md:space-y-40 md:pl-0">
+        <ol className="space-y-14 md:space-y-24">
           {journey.map((stage) => (
-            <li key={stage.name} className="relative">
-              <span
-                aria-hidden
-                className="absolute -left-[33px] top-[0.9rem] size-[7px] rounded-full bg-fg md:-left-[27px] md:top-[1.6rem]"
-              />
-              <p data-reveal className="text-sm text-muted">
-                {stage.period}
-              </p>
-              <h3 data-reveal className="display mt-3 text-[clamp(3rem,8vw,8rem)]">
-                {stage.name}
-              </h3>
-              <p data-reveal className="mt-6 max-w-[52ch] text-base leading-relaxed md:mt-8 md:text-lg">
-                {stage.text}
-              </p>
-              <p data-reveal className="mt-6 max-w-[52ch] font-mono text-xs leading-relaxed text-muted md:text-sm">
-                {stage.tools.join("  /  ")}
-              </p>
+            <li
+              key={stage.name}
+              className="relative grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] md:gap-16"
+            >
+              <span aria-hidden className="absolute -left-7 top-[0.55rem] size-[7px] rounded-full bg-fg md:-left-10" />
+              <div>
+                <p data-reveal className="text-sm text-muted">
+                  {stage.period}
+                </p>
+                <h2 data-reveal className="display mt-2 text-[clamp(2.4rem,5vw,5rem)]">
+                  {stage.name}
+                </h2>
+              </div>
+              <div>
+                <p data-reveal className="max-w-[54ch] text-base leading-relaxed md:text-lg">
+                  {stage.text}
+                </p>
+                <p data-reveal className="mt-5 max-w-[54ch] font-mono text-xs leading-relaxed text-muted md:text-sm">
+                  {stage.tools.join("  /  ")}
+                </p>
+              </div>
             </li>
           ))}
         </ol>

@@ -158,6 +158,6 @@ body::after {
 /* Hovering one row of a list dims the others. */
 @media (hover: hover) {
   .dim-siblings:hover > li:not(:hover):not([aria-hidden]) {
-    opacity: 0.32;
+    opacity: 0.55;
   }
 }

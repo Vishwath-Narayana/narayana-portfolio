@@ -50,6 +50,7 @@ html[data-theme="light"] .flip {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-living: "Bodoni Moda Variable", "Bodoni Moda", "Times New Roman", serif;
 }
 
 html {

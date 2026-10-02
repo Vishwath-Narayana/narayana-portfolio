@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "photos": "python3 scripts/process_photos.py"
   },
   "dependencies": {
     "@fontsource-variable/bodoni-moda": "^5.3.0",

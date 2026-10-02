@@ -180,7 +180,7 @@ export default function Hero() {
         <h1
           ref={name}
           aria-label="Vishwath Narayana"
-          className="display font-living text-[min(19vw,31svh)] [font-synthesis:none]"
+          className="display font-living text-[min(18vw,26svh)] md:text-[min(14.4vw,28svh)] [font-synthesis:none]"
         >
           {WORDS.map((word, wi) => (
             <span

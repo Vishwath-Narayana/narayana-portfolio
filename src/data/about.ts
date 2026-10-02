@@ -6,44 +6,11 @@ export const intro =
 export type Year = { year: string; title: string; lines: string[] };
 
 export const years: Year[] = [
-  {
-    year: "2023",
-    title: "Joined KITS Warangal",
-    lines: [
-      "B.Tech in Computer Science and Engineering.",
-      "I came in drawing screens before I wrote code, and that never fully left.",
-    ],
-  },
-  {
-    year: "2024",
-    title: "Executive Member, CSE Association",
-    lines: [
-      "Helped organise technical fests and inter-department activities.",
-      "Learned to build the whole product, front to back.",
-    ],
-  },
-  {
-    year: "2025",
-    title: "Joint Secretary, and a first internship",
-    lines: [
-      "Led department-level technical events, workshops and student coordination.",
-      "Spent January to March as a Social Growth Intern at Poditivity.",
-      "Took on photography, video and content for SAiL, the college innovation and leadership group.",
-    ],
-  },
-  {
-    year: "2026",
-    title: "President, CSE Association",
-    lines: [
-      "I run the association I joined as a member two years ago.",
-      "On the engineering side, I built a data lake on AWS for NYC taxi trips.",
-    ],
-  },
-  {
-    year: "2027",
-    title: "Graduation",
-    lines: ["B.Tech finishes with a CGPA of 8.35 so far.", "Next: a first role in data engineering."],
-  },
+  { year: "2023", title: "Joined KITS Warangal", lines: ["B.Tech in Computer Science. I came in drawing screens before I wrote code, and that never fully left."] },
+  { year: "2024", title: "Second year", lines: ["Executive Member of the CSE Association. Learned to build the whole product, front to back."] },
+  { year: "2025", title: "Third year", lines: ["Joint Secretary, a first internship at Poditivity, and photography and video for SAiL."] },
+  { year: "2026", title: "Fourth year", lines: ["President of the CSE Association. Built a data lake on AWS for NYC taxi trips."] },
+  { year: "2027", title: "Graduation", lines: ["Next: a first role in data engineering."] },
 ];
 
 export const education = {

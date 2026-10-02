@@ -4,24 +4,13 @@ import path from "node:path";
 import Link from "next/link";
 import FrameMotion from "@/components/FrameMotion";
 import Timeline from "@/components/about/Timeline";
+import { projects } from "@/data/build";
 import { activities, certifications, education, experience, intro, offTheClock, skills, years } from "@/data/about";
 
 export const metadata: Metadata = {
   title: "About",
   description: "A computer science student who moved from design to full-stack to data engineering.",
 };
-
-/** A quiet label on the left, the content on the right. */
-function Row({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="grid gap-6 border-t border-line py-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] md:gap-16 md:py-14">
-      <h2 data-reveal className="text-sm text-muted">
-        {label}
-      </h2>
-      <div data-reveal>{children}</div>
-    </div>
-  );
-}
 
 export default function Page() {
   // The resume link appears as soon as a PDF is placed at public/resume.pdf.
@@ -56,64 +45,91 @@ export default function Page() {
         <Timeline years={years} />
       </section>
 
-      <section className="px-5 pb-16 md:px-10 md:pb-24">
-        <Row label="Experience">
-          <p className="text-lg md:text-xl">
-            {experience.role}, {experience.org}
-          </p>
-          <p className="mt-2 font-mono text-sm text-muted">
-            {experience.place}, {experience.period}
-          </p>
-          <ul className="mt-6 max-w-[54ch] space-y-3 text-base leading-relaxed">
-            {experience.points.map((p) => (
-              <li key={p}>{p}</li>
-            ))}
-          </ul>
-        </Row>
+      <section className="grid gap-16 px-5 pb-20 md:grid-cols-2 md:gap-20 md:px-10 md:pb-32">
+        <div className="space-y-14">
+          <div data-reveal>
+            <h2 className="text-sm text-muted">Experience</h2>
+            <p className="mt-4 text-lg md:text-xl">
+              {experience.role}, {experience.org}
+            </p>
+            <p className="mt-1 font-mono text-sm text-muted">
+              {experience.place}, {experience.period}
+            </p>
+            <ul className="mt-4 max-w-[54ch] space-y-2 text-base leading-relaxed text-muted">
+              {experience.points.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          </div>
 
-        <Row label="Education">
-          <p className="text-lg md:text-xl">{education.school}</p>
-          <p className="mt-2 text-muted">{education.degree}</p>
-          <p className="mt-2 font-mono text-sm text-muted">
-            {education.period}, {education.note}
-          </p>
-        </Row>
+          <div data-reveal>
+            <h2 className="text-sm text-muted">Leadership and activities</h2>
+            <ul className="mt-4 space-y-5">
+              {activities.map((a) => (
+                <li key={a.role + a.org}>
+                  <p className="text-base md:text-lg">
+                    {a.role}<span className="text-muted">, {a.org}</span>
+                  </p>
+                  <p className="mt-1 max-w-[54ch] text-sm leading-relaxed text-muted">{a.note}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-        <Row label="Certifications">
-          <ul className="space-y-6">
-            {certifications.map((c) => (
-              <li key={c.name}>
-                <p className="text-lg md:text-xl">{c.name}</p>
-                {"detail" in c && c.detail && <p className="mt-1 max-w-[54ch] text-muted">{c.detail}</p>}
-              </li>
-            ))}
-          </ul>
-        </Row>
+        <div className="space-y-14">
+          <div data-reveal>
+            <h2 className="text-sm text-muted">Education</h2>
+            <p className="mt-4 text-lg md:text-xl">{education.school}</p>
+            <p className="mt-1 text-muted">{education.degree}</p>
+            <p className="mt-1 font-mono text-sm text-muted">
+              {education.period}, {education.note}
+            </p>
+          </div>
 
-        <Row label="Leadership and activities">
-          <ul className="space-y-7">
-            {activities.map((a) => (
-              <li key={a.role + a.org}>
-                <p className="text-lg md:text-xl">{a.role}</p>
-                <p className="mt-1 text-muted">{a.org}</p>
-                <p className="mt-2 max-w-[54ch]">{a.note}</p>
-              </li>
-            ))}
-          </ul>
-        </Row>
+          <div data-reveal>
+            <h2 className="text-sm text-muted">Certifications</h2>
+            <ul className="mt-4 space-y-3 text-base">
+              {certifications.map((c) => (
+                <li key={c.name}>
+                  {c.name}
+                  {"detail" in c && c.detail && <span className="block text-sm text-muted">{c.detail}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <Row label="What I work with">
-          <dl className="space-y-5">
-            {skills.map((s) => (
-              <div key={s.label} className="grid gap-1 sm:grid-cols-[9.5rem_minmax(0,1fr)] sm:gap-6">
-                <dt className="text-sm text-muted">{s.label}</dt>
-                <dd>{s.items}</dd>
-              </div>
-            ))}
-          </dl>
-        </Row>
+          <div data-reveal>
+            <h2 className="text-sm text-muted">What I work with</h2>
+            <dl className="mt-4 space-y-3 text-sm leading-relaxed">
+              {skills.map((s) => (
+                <div key={s.label} className="grid gap-x-4 sm:grid-cols-[7.5rem_minmax(0,1fr)]">
+                  <dt className="text-muted">{s.label}</dt>
+                  <dd>{s.items}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
 
-        <div className="border-t border-line" />
+      <section className="px-5 pb-20 md:px-10 md:pb-32">
+        <h2 data-reveal className="text-sm text-muted">
+          Selected work
+        </h2>
+        <ul className="mt-4 border-t border-line">
+          {projects.map((p) => (
+            <li key={p.name} data-reveal className="border-b border-line">
+              <Link
+                href="/build"
+                className="grid gap-1 py-6 transition-[padding] duration-500 [transition-timing-function:var(--ease-out)] md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] md:gap-16 md:py-8 md:hover:pl-3"
+              >
+                <span className="display text-3xl md:text-5xl">{p.name}</span>
+                <span className="max-w-[54ch] self-center text-muted">{p.kind}. {p.stack.slice(0, 4).join(", ")}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="px-5 pb-28 md:px-10 md:pb-44">

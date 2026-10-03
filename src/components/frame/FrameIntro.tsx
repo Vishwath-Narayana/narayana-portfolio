@@ -4,7 +4,7 @@ export default function FrameIntro() {
       <p data-reveal className="text-sm text-muted">
         Frame
       </p>
-      <h1 data-reveal className="display mt-4 max-w-[13em] text-balance text-[clamp(2.4rem,5.4vw,5.6rem)]">
+      <h1 data-reveal className="display mt-4 max-w-[13em] text-balance !leading-[1.04] text-[clamp(2.4rem,5.4vw,5.6rem)]">
         I photograph what light does to ordinary places.
       </h1>
 
@@ -18,7 +18,7 @@ export default function FrameIntro() {
             moment of the day, before the light changes.
           </p>
           <p data-reveal>
-            It started as a hobby and became part of my work too: I have shot and edited content for brands and for
+            It started as a hobby and became part of my work too: I have shot and edited content for a company and for
             my college. It is also where my eye for design comes from.
           </p>
           <p data-reveal className="text-muted">

@@ -103,7 +103,7 @@ function stroke(
 ): React.CSSProperties | undefined {
   if (delay === undefined || dur === undefined) return undefined;
   return {
-    animation: `hand-draw ${dur * scale}s ease-out both`,
+    animation: `hand-draw ${dur * scale}s cubic-bezier(0.45, 0, 0.25, 1) both`,
     animationDelay: `${delay + dur * offset}s`,
   };
 }
@@ -286,15 +286,21 @@ export function HandwrittenResponse({
              and ascenders are never squared off by the box, and the closed state
              overshoots 100% by that same overhang so no sliver of the glyph is
              left showing before the word is written. */
-          @keyframes hand-write {
-            from { clip-path: inset(-0.4em calc(100% + 0.25em) -0.4em -0.25em) }
-            to   { clip-path: inset(-0.4em -0.25em -0.4em -0.25em) }
+          @property --hw { syntax: "<percentage>"; inherits: false; initial-value: -16%; }
+          @keyframes hand-write { from { --hw: -16% } to { --hw: 116% } }
+          /* A feathered edge, not a hard cut: everything left of the nib is ink, the
+             16% ahead of it fades in, so the pen glides instead of stepping. The mask
+             is only applied while a word is being written. */
+          [data-ink][style*="hand-write"] {
+            -webkit-mask-image: linear-gradient(90deg, #000 calc(var(--hw) - 16%), transparent var(--hw));
+            mask-image: linear-gradient(90deg, #000 calc(var(--hw) - 16%), transparent var(--hw));
           }
           @keyframes hand-draw { from { stroke-dashoffset: 4 } to { stroke-dashoffset: 0 } }
           @media (prefers-reduced-motion: reduce) {
             [data-ink], [data-draw] {
               animation: none !important;
-              clip-path: none !important;
+              -webkit-mask-image: none !important;
+              mask-image: none !important;
               stroke-dashoffset: 0 !important;
             }
           }`}
@@ -329,7 +335,7 @@ export function HandwrittenResponse({
             <span
               key={index}
               data-ink=""
-              className="inline-block whitespace-pre"
+              className="-mx-[0.25em] -my-[0.4em] inline-block whitespace-pre px-[0.25em] py-[0.4em]"
               style={style}
             >
               {part}

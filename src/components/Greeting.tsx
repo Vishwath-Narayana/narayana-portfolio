@@ -25,5 +25,5 @@ const getServer = () => "";
 export default function Greeting({ className = "" }: { className?: string }) {
   const text = useSyncExternalStore(subscribe, greeting, getServer);
   if (!text) return null;
-  return <HandwrittenResponse className={className}>{text}</HandwrittenResponse>;
+  return <HandwrittenResponse className={className} duration={0.3}>{text}</HandwrittenResponse>;
 }

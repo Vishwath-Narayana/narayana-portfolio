@@ -4,12 +4,12 @@ import Greeting from "./Greeting";
 /** The name, still, with a handwritten hello above it. */
 export default function Hero() {
   return (
-    <section className="relative h-svh min-h-[560px] overflow-hidden">
-      <div className="absolute inset-x-0 top-[24%] px-5 md:top-[26%] md:px-10">
-        <Greeting className="max-w-[12ch] -ml-[0.1em] !text-[clamp(2.1rem,4.4vw,4.6rem)] !leading-[1.25] !text-[color-mix(in_oklab,var(--fg)_80%,var(--bg))] md:max-w-[26ch]" />
+    <section className="relative flex h-svh min-h-[560px] flex-col overflow-hidden">
+      <div className="flex flex-1 items-center justify-center px-5 pt-20 text-center md:px-10">
+        <Greeting className="max-w-[16ch] !text-[clamp(1.7rem,2.9vw,3.1rem)] !leading-[1.3] !text-[color-mix(in_oklab,var(--fg)_80%,var(--bg))] md:max-w-none" />
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 px-5 pb-6 md:px-10 md:pb-9">
+      <div className="px-5 pb-6 md:px-10 md:pb-9">
         <h1 className="display text-[25vw] md:text-[14.4vw]">
           <span className="block md:inline">Vishwath</span>{" "}
           <span className="block md:inline">Narayana</span>

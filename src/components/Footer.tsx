@@ -29,7 +29,8 @@ export default function Footer() {
           <div className="mt-1 flex gap-5">
             {[
               ["GitHub", "https://github.com/Vishwath-Narayana"],
-              ["LinkedIn", "https://www.linkedin.com/in/vishwath-t-3563702a0/"],
+              ["LinkedIn", "https://www.linkedin.com/in/vishwath-t-3563702a0"],
+              ["Instagram", "https://www.instagram.com/_its_vishu_u"],
             ].map(([name, href]) => (
               <a key={name} href={href} target="_blank" rel="noreferrer" className="link-line inline-block">
                 {name}

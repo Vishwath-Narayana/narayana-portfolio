@@ -13,25 +13,20 @@ export const currently = {
   lines: [
     { label: "Building", text: "This site, and a data lake on AWS for NYC taxi trips." },
     { label: "Learning", text: "Data engineering, one pipeline at a time." },
-    { label: "Leading", text: "The CSE Association at KITSW, as its president." },
-    { label: "Looking up", text: "At the night sky, when it is clear enough." },
+    { label: "Leading", text: "The CSE Association at KITSW, as its president, after serving as Executive Member and Joint Secretary." },
   ],
 };
 
-export type Note = { text: string; href?: string; cta?: string };
-
-export const fieldNotes: Note[] = [
-  { text: "I like looking up. Telescopes, stars, and how little of the sky most of us ever see.", href: "/write/looking-up", cta: "The night sky" },
-  { text: "I want to settle in Switzerland and stay there.", href: "/write/why-switzerland", cta: "Why Switzerland" },
-  { text: "I photograph railway tracks, and ordinary light on ordinary places.", href: "/frame", cta: "The photographs" },
-  { text: "Area 51 is on my list. I am going with friends.", href: "/write/area-51", cta: "The plan" },
+/** Off-screen life, kept to one line that links to the posts. */
+export const someday = [
+  { text: "Switzerland, to settle", href: "/write/why-switzerland" },
+  { text: "Area 51, with friends", href: "/write/area-51" },
 ];
 
 export const inShort = [
-  "Four Google Cloud certifications, including the four-course Cloud Computing Foundations series",
-  "President of the CSE Association, after serving as Joint Secretary and Executive Member",
-  "Shortlisted in the internal rounds of Smart India Hackathon",
-  "Social Growth Intern at Poditivity, January to March 2025",
+  { label: "Certified", text: "Four Google Cloud certifications, including the four-course Cloud Computing Foundations series" },
+  { label: "Shortlisted", text: "Internal rounds of Smart India Hackathon" },
+  { label: "Interned", text: "Social Growth Intern at Poditivity, January to March 2025" },
 ];
 
 /**

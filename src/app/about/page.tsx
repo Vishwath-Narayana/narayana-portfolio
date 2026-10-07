@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FrameMotion from "@/components/FrameMotion";
 import Story from "@/components/about/Story";
-import { aboutPics, currently, fieldNotes, identity, inShort, story } from "@/data/about";
+import { aboutPics, currently, identity, inShort, someday, story } from "@/data/about";
 
 export const metadata: Metadata = {
   title: "About",
@@ -60,7 +60,7 @@ export default function Page() {
         <Story paragraphs={story} pics={hasStoryPics ? (storyPics as { src: string; alt: string }[]) : null} />
       </section>
 
-      <section className="flip px-5 py-20 md:px-10 md:py-32">
+      <section className="flip px-5 py-16 md:px-10 md:py-24">
         <div className="flex items-baseline justify-between gap-6">
           <h2 data-reveal className="text-sm opacity-60">
             Currently
@@ -69,55 +69,54 @@ export default function Page() {
             {currently.when}
           </p>
         </div>
-        <dl className="mt-10 md:mt-16">
+        <dl className="mt-8 md:mt-12">
           {currently.lines.map((l) => (
             <div
               key={l.label}
               data-reveal
-              className="grid gap-2 border-t border-current/20 py-7 md:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)] md:gap-16 md:py-10"
+              className="grid gap-2 border-t border-current/20 py-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)] md:gap-16 md:py-8"
             >
               <dt className="text-sm opacity-60 md:pt-3">{l.label}</dt>
-              <dd className="display text-[clamp(1.8rem,3.8vw,3.8rem)] !leading-[1.1]">{l.text}</dd>
+              <dd className="display max-w-[22em] text-[clamp(1.8rem,3.4vw,3.4rem)] !leading-[1.1]">{l.text}</dd>
             </div>
           ))}
+          <div
+            data-reveal
+            className="grid gap-2 border-t border-current/20 py-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)] md:gap-16 md:py-8"
+          >
+            <dt className="text-sm opacity-60 md:pt-3">Someday</dt>
+            <dd className="display text-[clamp(1.8rem,3.4vw,3.4rem)] !leading-[1.1]">
+              {someday.map((x, i) => (
+                <span key={x.text}>
+                  <Link href={x.href} className="link-line">
+                    {x.text}
+                  </Link>
+                  {i < someday.length - 1 ? ". " : "."}
+                </span>
+              ))}
+            </dd>
+          </div>
         </dl>
       </section>
 
-      <section className="px-5 py-20 md:px-10 md:py-32">
-        <h2 data-reveal className="text-sm text-muted">
-          Field notes
-        </h2>
-        <ul className="mt-8 border-t border-line md:mt-12">
-          {fieldNotes.map((n) => (
-            <li key={n.text} data-reveal className="border-b border-line">
-              <Link
-                href={n.href ?? "/frame"}
-                className="group grid gap-3 py-7 transition-[padding] duration-500 [transition-timing-function:var(--ease-out)] md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] md:gap-16 md:py-10 md:hover:pl-3"
-              >
-                <span className="max-w-[40ch] text-xl leading-snug md:text-3xl">{n.text}</span>
-                <span className="md:self-center">
-                  <span className="link-line pb-0.5 text-base">{n.cta}</span>
-                </span>
-              </Link>
-            </li>
+      <section className="px-5 py-16 md:px-10 md:py-24">
+        <dl>
+          {inShort.map((r) => (
+            <div
+              key={r.label}
+              data-reveal
+              className="grid gap-2 border-t border-line py-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)] md:gap-16 md:py-8"
+            >
+              <dt className="text-sm text-muted md:pt-1">{r.label}</dt>
+              <dd className="max-w-[40ch] text-lg leading-snug md:text-2xl">{r.text}</dd>
+            </div>
           ))}
-        </ul>
-      </section>
-
-      <section className="border-t border-line px-5 py-16 md:px-10 md:py-28">
-        <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-16">
-          <h2 data-reveal className="text-sm text-muted">
-            In short
-          </h2>
-          <div>
-            <ul>
-              {inShort.map((t) => (
-                <li key={t} data-reveal className="border-b border-line py-5 text-lg leading-snug first:pt-0 md:text-2xl">
-                  {t}
-                </li>
-              ))}
-            </ul>
-            <p data-reveal className="mt-10 flex flex-wrap gap-x-10 gap-y-3 text-base">
+          <div
+            data-reveal
+            className="grid gap-2 border-y border-line py-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)] md:gap-16 md:py-8"
+          >
+            <dt className="text-sm text-muted">More</dt>
+            <dd className="flex flex-wrap gap-x-10 gap-y-3 text-base md:text-lg">
               {hasResume && (
                 <a href="/resume.pdf" className="link-line pb-0.5" download>
                   Full resume (PDF)
@@ -126,15 +125,9 @@ export default function Page() {
               <Link href="/build" className="link-line pb-0.5">
                 What I have built
               </Link>
-            </p>
+            </dd>
           </div>
-        </div>
-      </section>
-
-      <section className="px-5 pb-28 pt-4 md:px-10 md:pb-44">
-        <p data-reveal className="max-w-[60ch] text-sm leading-relaxed text-muted">
-          Set in Instrument Serif and Geist. Built with Next.js, GSAP and Lenis.
-        </p>
+        </dl>
       </section>
     </>
   );

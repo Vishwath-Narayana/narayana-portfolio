@@ -34,9 +34,15 @@ export const inShort = [
   "Social Growth Intern at Poditivity, January to March 2025",
 ];
 
-/** Which photograph goes with what. Ids come from src/data/photos.generated.json. */
-export const pics = {
-  hero: "img11",
-  story: ["img10", "img15", "img28"],
-  notes: ["img16", "img18", "img13", "img31"],
+/**
+ * Pictures of me, kept out of Frame. Drop files into public/about/ with these names and they appear.
+ * Missing files are skipped and the layout closes up around them.
+ */
+export const aboutPics = {
+  portrait: { file: "portrait.jpg", alt: "Vishwath" },
+  story: [
+    { file: "story-1.jpg", alt: "Vishwath, early on" },
+    { file: "story-2.jpg", alt: "Vishwath, building" },
+    { file: "story-3.jpg", alt: "Vishwath today" },
+  ],
 };

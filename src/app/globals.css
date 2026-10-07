@@ -194,3 +194,12 @@ body::after {
   list-style: disc;
   padding-left: 1.2em;
 }
+
+/* Handwriting for the hero tagline. Self-hosted so no extra package is needed. */
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/caveat-500.woff2") format("woff2");
+}

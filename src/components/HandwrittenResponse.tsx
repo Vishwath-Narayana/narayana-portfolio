@@ -91,7 +91,9 @@ function parse(src: string): Token[] {
 // words were already on the page, so the overlay is simply there.
 type Drawn = { delay?: number; dur?: number };
 
-// pathLength normalises the dash units to 1, so the sweep needs no measuring of
+// pathLength normalises the dash units to 1, but with non-scaling-stroke Chrome measures
+// the dash on screen, so a ring stretched wide is longer than 1. The dash and the offset
+// are therefore 4, not 1, so the whole stroke is always covered. The sweep needs no measuring of
 // the path and no ref. `offset` and `scale` are fractions of `dur`, for the
 // second strike pass that trails the first.
 function stroke(
@@ -128,7 +130,7 @@ function Ring(drawn: Drawn) {
         vectorEffect="non-scaling-stroke"
         data-draw=""
         pathLength={1}
-        strokeDasharray={1}
+        strokeDasharray={4}
         style={stroke(drawn)}
       />
     </svg>
@@ -157,7 +159,7 @@ function Strike(drawn: Drawn) {
         vectorEffect="non-scaling-stroke"
         data-draw=""
         pathLength={1}
-        strokeDasharray={1}
+        strokeDasharray={4}
         style={stroke(drawn, 0, 0.7)}
       />
       <path
@@ -170,7 +172,7 @@ function Strike(drawn: Drawn) {
         vectorEffect="non-scaling-stroke"
         data-draw=""
         pathLength={1}
-        strokeDasharray={1}
+        strokeDasharray={4}
         style={stroke(drawn, 0.3, 0.7)}
       />
     </svg>
@@ -288,7 +290,7 @@ export function HandwrittenResponse({
             from { clip-path: inset(-0.4em calc(100% + 0.25em) -0.4em -0.25em) }
             to   { clip-path: inset(-0.4em -0.25em -0.4em -0.25em) }
           }
-          @keyframes hand-draw { from { stroke-dashoffset: 1 } to { stroke-dashoffset: 0 } }
+          @keyframes hand-draw { from { stroke-dashoffset: 4 } to { stroke-dashoffset: 0 } }
           @media (prefers-reduced-motion: reduce) {
             [data-ink], [data-draw] {
               animation: none !important;

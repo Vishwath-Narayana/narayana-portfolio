@@ -21,9 +21,9 @@ export const currently = {
 export type Note = { text: string; href?: string; cta?: string };
 
 export const fieldNotes: Note[] = [
-  { text: "I like looking up. Telescopes, stars, and how little of the sky most of us ever see.", href: "/write/looking-up", cta: "Read about the night sky" },
+  { text: "I like looking up. Telescopes, stars, and how little of the sky most of us ever see.", href: "/write/looking-up", cta: "The night sky" },
   { text: "I want to settle in Switzerland and stay there.", href: "/write/why-switzerland", cta: "Why Switzerland" },
-  { text: "I photograph railway tracks, and ordinary light on ordinary places.", href: "/frame", cta: "See the photographs" },
+  { text: "I photograph railway tracks, and ordinary light on ordinary places.", href: "/frame", cta: "The photographs" },
   { text: "Area 51 is on my list. I am going with friends.", href: "/write/area-51", cta: "The plan" },
 ];
 
@@ -33,3 +33,10 @@ export const inShort = [
   "Shortlisted in the internal rounds of Smart India Hackathon",
   "Social Growth Intern at Poditivity, January to March 2025",
 ];
+
+/** Which photograph goes with what. Ids come from src/data/photos.generated.json. */
+export const pics = {
+  hero: "img11",
+  story: ["img10", "img15", "img28"],
+  notes: ["img16", "img18", "img13", "img31"],
+};

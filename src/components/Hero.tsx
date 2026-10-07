@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative h-svh min-h-[560px] overflow-hidden">
       <div className="absolute inset-x-0 top-[24%] px-5 md:top-[26%] md:px-10">
-        <Greeting className="max-w-[12ch] !text-[clamp(2.6rem,6.2vw,6.4rem)] !leading-[1.2] md:max-w-[26ch]" />
+        <Greeting className="max-w-[12ch] -ml-[0.1em] !text-[clamp(2.1rem,4.4vw,4.6rem)] !leading-[1.25] !text-[color-mix(in_oklab,var(--fg)_80%,var(--bg))] md:max-w-[26ch]" />
       </div>
 
       <div className="absolute inset-x-0 bottom-0 px-5 pb-6 md:px-10 md:pb-9">
@@ -20,7 +20,6 @@ export default function Hero() {
             Data engineer, photographer and writer.
           </p>
           <p className="shrink-0 text-right font-mono text-xs text-muted md:text-sm">
-            <span className="hidden sm:inline">Warangal </span>
             <Clock />
           </p>
         </div>

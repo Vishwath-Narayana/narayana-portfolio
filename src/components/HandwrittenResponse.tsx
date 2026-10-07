@@ -46,7 +46,7 @@ export interface HandwrittenResponseProps {
 // which means the ink has to stay the theme foreground and the BAND has to
 // adapt instead. Thinned in dark mode: amber over near-black still reads as a
 // marker and carries white ink at ~6:1.
-const HIGHLIGHT = "bg-[color-mix(in_oklab,var(--fg)_22%,transparent)]";
+const HIGHLIGHT = "bg-[color-mix(in_oklab,var(--fg)_13%,transparent)]";
 
 // Pen time is charged per character rather than per word, so the nib moves at
 // one steady speed instead of racing through "extraordinarily" and crawling
@@ -198,7 +198,7 @@ function Swipe({ delay, dur }: Drawn) {
             }),
       }}
       className={cn(
-        "absolute right-[-0.24em] bottom-[0.12em] left-[-0.24em] h-[0.6em] rounded-full",
+        "absolute right-[-0.24em] bottom-[0.2em] left-[-0.24em] h-[0.4em] rounded-full",
         HIGHLIGHT,
       )}
     />

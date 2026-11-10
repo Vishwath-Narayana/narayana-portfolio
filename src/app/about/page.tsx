@@ -141,25 +141,33 @@ export default function Page() {
       </section>
 
       {/* The path: education, work, leadership, recognition. */}
-      <section className="border-t border-line px-5 py-20 md:px-10 md:py-28">
+      <section className="px-5 py-20 md:px-10 md:py-28">
         <Label n="02">The path so far</Label>
         <h2 data-reveal className="display mt-6 max-w-[16em] text-balance text-[clamp(2.2rem,4.4vw,4.6rem)] !leading-[1.04]">
           A degree, an internship, and four years with the CSE Association.
         </h2>
 
-        <div className="mt-14 space-y-14 md:mt-20 md:space-y-20">
+        <div className="mt-14 space-y-16 md:mt-20 md:space-y-24">
           {journey.map((g) => (
-            <div key={g.group} className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] md:gap-16">
+            <div key={g.group} className="grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] md:gap-16">
               <h3 data-reveal className="font-mono text-xs uppercase tracking-[0.1em] text-muted md:sticky md:top-28 md:self-start md:text-sm">
                 {g.group}
               </h3>
-              <ol className="border-t border-line">
-                {g.entries.map((e) => (
+              {/* One vertical line per group, a dot per role: no rules between entries. */}
+              <ol className="relative space-y-10 pl-7 md:space-y-12 md:pl-9">
+                {g.entries.length > 1 && <span aria-hidden className="absolute bottom-2 left-[3px] top-3 w-px bg-line" />}
+                {g.entries.map((e, i) => (
                   <li
                     key={e.role + e.when}
                     data-reveal
-                    className="grid gap-2 border-b border-line py-6 md:grid-cols-[9rem_minmax(0,1fr)] md:gap-10 md:py-8"
+                    className="relative grid gap-2 md:grid-cols-[9rem_minmax(0,1fr)] md:gap-10"
                   >
+                    <span
+                      aria-hidden
+                      className={`absolute -left-7 top-[0.55rem] size-[7px] rounded-full border border-fg md:-left-9 md:top-[0.7rem] ${
+                        i === 0 ? "bg-fg" : "bg-bg"
+                      }`}
+                    />
                     <p className="font-mono text-xs uppercase tracking-[0.08em] text-muted md:pt-2">{e.when}</p>
                     <div>
                       <p className="display text-[clamp(1.6rem,2.4vw,2.4rem)] !leading-[1.1]">{e.role}</p>
@@ -176,7 +184,7 @@ export default function Page() {
 
       {/* Moments: extra photographs, shown only when the files exist. */}
       {moments.length > 0 && (
-        <section className="border-t border-line px-5 py-20 md:px-10 md:py-28">
+        <section className="px-5 py-20 md:px-10 md:py-28">
           <Label n="03">Moments</Label>
           <ul className={`mt-12 grid gap-6 md:mt-16 md:gap-8 ${moments.length > 2 ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2"}`}>
             {moments.map((m, i) => (
@@ -196,16 +204,16 @@ export default function Page() {
       )}
 
       {/* Now and next. */}
-      <section className="border-t border-line px-5 py-20 md:px-10 md:py-28">
+      <section className="px-5 py-20 md:px-10 md:py-28">
         <div className="flex items-baseline justify-between gap-6">
           <Label n={moments.length > 0 ? "04" : "03"}>Now and next</Label>
           <p data-reveal className="font-mono text-xs uppercase tracking-[0.1em] text-muted">
             {currently.when}
           </p>
         </div>
-        <dl className="mt-12 grid border-l border-t border-line md:mt-16 md:grid-cols-2">
+        <dl className="mt-12 grid gap-x-16 gap-y-12 md:mt-16 md:grid-cols-2 md:gap-y-16">
           {[...currently.lines, { label: "Someday", text: "" }].map((l) => (
-            <div key={l.label} data-reveal className="border-b border-r border-line p-6 md:p-10">
+            <div key={l.label} data-reveal>
               <dt className="font-mono text-[0.68rem] uppercase tracking-[0.1em] text-muted">{l.label}</dt>
               <dd className="display mt-4 text-[clamp(1.7rem,2.6vw,2.7rem)] !leading-[1.12]">
                 {l.label === "Someday"

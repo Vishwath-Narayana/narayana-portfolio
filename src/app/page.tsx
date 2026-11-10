@@ -1,29 +1,29 @@
 import Hero from "@/components/Hero";
 import Statement from "@/components/Statement";
-import Lenses from "@/components/Lenses";
-import Roll, { type RollFrame } from "@/components/home/Roll";
-import { chapters, exposure, photos } from "@/data/photos";
+import Practices from "@/components/home/Practices";
+import { projects } from "@/data/build";
+import { photos } from "@/data/photos";
+import { getPosts } from "@/lib/posts";
 
-/** The frames the home page strip shows, in this order. */
-const PICKS = ["img31", "img4", "img6", "img24", "img32", "img21", "img12", "img26", "img16"];
+/** The prints shown in the Frame chapter, back to front. */
+const PRINTS = ["img6", "img24", "img31"];
 
 export default function Home() {
-  const frames: RollFrame[] = PICKS.map((id) => photos.find((p) => p.id === id))
+  const prints = PRINTS.map((id) => photos.find((p) => p.id === id))
     .filter((p) => p !== undefined)
-    .map((p) => ({
-      id: p.id,
-      src: p.src,
-      blur: p.blur,
-      title: p.title,
-      meta: exposure(p) || (chapters.find((c) => c.id === p.chapter)?.name ?? ""),
-    }));
+    .map(({ id, src, blur, title }) => ({ id, src, blur, title }));
+  const posts = getPosts().map(({ slug, title, date, tag }) => ({ slug, title, date, tag }));
 
   return (
     <>
       <Hero />
       <Statement />
-      <Roll frames={frames} total={photos.length} />
-      <Lenses />
+      <Practices
+        projects={projects.map((p) => p.name)}
+        photos={prints}
+        photoCount={photos.length}
+        posts={posts}
+      />
     </>
   );
 }

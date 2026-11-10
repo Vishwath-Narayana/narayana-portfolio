@@ -223,3 +223,23 @@ body::after {
   88% { opacity: 1; }
   100% { left: calc(100% - 7px); opacity: 0; }
 }
+
+/* The same packet, falling down a vertical pipeline. */
+.flow-drop {
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--fg);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--fg) 14%, transparent);
+  animation: flow-drop 3.2s var(--ease-inout) infinite;
+  opacity: 0;
+}
+@keyframes flow-drop {
+  0% { top: 0.75rem; opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { top: calc(100% - 0.75rem); opacity: 0; }
+}

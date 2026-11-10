@@ -9,8 +9,8 @@ import SmoothScroll from "@/components/SmoothScroll";
 import { TransitionProvider } from "@/components/Transition";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { SITE } from "@/lib/site";
 
-const SITE = "https://vishwath-narayana-iota.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),

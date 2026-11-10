@@ -1,8 +1,8 @@
 import { getPosts } from "@/lib/posts";
+import { SITE as site } from "@/lib/site";
 
 export const dynamic = "force-static";
 
-const site = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 export function GET() {

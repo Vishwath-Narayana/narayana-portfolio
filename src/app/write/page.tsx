@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import FrameMotion from "@/components/FrameMotion";
+import NoteList from "@/components/write/NoteList";
 import { formatDate, getPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -10,50 +10,38 @@ export const metadata: Metadata = {
 
 export default function Page() {
   const posts = getPosts();
-  const tags = [...new Set(posts.map((p) => p.tag).filter(Boolean))];
+  const minutes = posts.reduce((sum, p) => sum + p.minutes, 0);
+
   return (
     <>
       <FrameMotion />
       <section className="px-5 pb-24 pt-32 md:px-10 md:pb-40 md:pt-44">
-        <p data-reveal className="text-sm text-muted">
-          Write
-        </p>
+        <div className="flex items-baseline justify-between gap-6">
+          <p data-reveal className="font-mono text-xs text-muted md:text-sm">
+            Write
+          </p>
+          <p data-reveal className="font-mono text-xs text-muted md:text-sm">
+            {posts.length} notes &middot; {minutes} min in all &middot;{" "}
+            <a href="/write/rss.xml" className="link-line text-fg">
+              RSS
+            </a>
+          </p>
+        </div>
         <h1 data-reveal className="display mt-4 max-w-[13em] text-balance text-[clamp(2.4rem,5.4vw,5.6rem)] !leading-[1.04]">
           Notes on what I am learning, building and hoping to see.
         </h1>
 
-        <p data-reveal className="mt-10 font-mono text-xs text-muted md:mt-14 md:text-sm">
-          {posts.length} notes &middot; {tags.join(", ")} &middot;{" "}
-          <a href="/write/rss.xml" className="link-line">
-            RSS
-          </a>
-        </p>
-
-        <ul className="mt-10 border-t border-line md:mt-16">
-          {posts.map((p) => (
-            <li key={p.slug} data-reveal className="border-b border-line">
-              <Link
-                href={`/write/${p.slug}`}
-                className="group grid gap-3 py-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,2.4fr)_minmax(0,1.2fr)] md:items-baseline md:gap-10 md:py-12"
-              >
-                <p className="font-mono text-xs text-muted md:text-sm">{formatDate(p.date)}</p>
-                <div className="transition-transform duration-700 [transition-timing-function:var(--ease-out)] md:group-hover:translate-x-3">
-                  <h2 className="display text-balance text-[clamp(1.9rem,3.6vw,3.6rem)]">{p.title}</h2>
-                  <p className="mt-3 max-w-[46ch] text-base text-muted">{p.summary}</p>
-                </div>
-                <p className="font-mono text-xs text-muted md:text-right md:text-sm">
-                  {p.tag}, {p.minutes} min read
-                  <span
-                    aria-hidden
-                    className="ml-3 inline-block -translate-x-2 opacity-0 transition-[opacity,translate] duration-500 group-hover:translate-x-0 group-hover:opacity-100"
-                  >
-                    &rarr;
-                  </span>
-                </p>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <NoteList
+          notes={posts.map((p) => ({
+            slug: p.slug,
+            title: p.title,
+            summary: p.summary,
+            tag: p.tag,
+            minutes: p.minutes,
+            date: p.date,
+            dateLabel: formatDate(p.date),
+          }))}
+        />
       </section>
     </>
   );

@@ -34,7 +34,7 @@ export function getPosts(): Post[] {
       } satisfies Post;
     })
     .filter((p): p is Post => p !== null)
-    .sort((a, b) => b.date.localeCompare(a.date));
+    .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
 }
 
 export function getPost(slug: string) {

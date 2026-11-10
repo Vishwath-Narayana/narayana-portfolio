@@ -22,8 +22,8 @@ export default function FrameIntro() {
             my college. It is also where my eye for design comes from.
           </p>
           <p data-reveal className="text-muted">
-            Under each photo is what I set the camera to. Open one to see it larger, with everything the file
-            remembers.
+            Hover a photo to see what I set the camera to, or switch to the index and read the roll as data. Open
+            one to see it larger, with everything the file remembers.
           </p>
         </div>
       </div>

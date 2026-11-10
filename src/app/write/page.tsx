@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   const posts = getPosts();
+  const tags = [...new Set(posts.map((p) => p.tag).filter(Boolean))];
   return (
     <>
       <FrameMotion />
@@ -21,7 +22,14 @@ export default function Page() {
           Notes on what I am learning, building and hoping to see.
         </h1>
 
-        <ul className="mt-20 border-t border-line md:mt-32">
+        <p data-reveal className="mt-10 font-mono text-xs text-muted md:mt-14 md:text-sm">
+          {posts.length} notes &middot; {tags.join(", ")} &middot;{" "}
+          <a href="/write/rss.xml" className="link-line">
+            RSS
+          </a>
+        </p>
+
+        <ul className="mt-10 border-t border-line md:mt-16">
           {posts.map((p) => (
             <li key={p.slug} data-reveal className="border-b border-line">
               <Link
@@ -35,6 +43,12 @@ export default function Page() {
                 </div>
                 <p className="font-mono text-xs text-muted md:text-right md:text-sm">
                   {p.tag}, {p.minutes} min read
+                  <span
+                    aria-hidden
+                    className="ml-3 inline-block -translate-x-2 opacity-0 transition-[opacity,translate] duration-500 group-hover:translate-x-0 group-hover:opacity-100"
+                  >
+                    &rarr;
+                  </span>
                 </p>
               </Link>
             </li>

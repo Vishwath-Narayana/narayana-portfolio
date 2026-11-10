@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import { formatDate, getPost, getPosts } from "@/lib/posts";
+import ReadingProgress from "@/components/ReadingProgress";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -26,6 +27,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <article className="px-5 pb-24 pt-32 md:px-10 md:pb-40 md:pt-44">
+      <ReadingProgress />
       <Link href="/write" className="link-line pb-0.5 text-sm">
         All writing
       </Link>

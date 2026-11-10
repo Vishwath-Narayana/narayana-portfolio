@@ -9,7 +9,7 @@ export const story = [
 ];
 
 export const currently = {
-  when: "October 2026",
+  when: "November 2026",
   lines: [
     { label: "Building", text: "This site, and a data lake on AWS for NYC taxi trips." },
     { label: "Learning", text: "Data engineering, one pipeline at a time." },

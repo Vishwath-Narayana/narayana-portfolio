@@ -10,7 +10,17 @@ import { TransitionProvider } from "@/components/Transition";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
+const SITE = "https://vishwath-narayana-iota.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE),
+  openGraph: {
+    type: "website",
+    siteName: "Vishwath Narayana",
+    locale: "en_IN",
+    url: SITE,
+  },
+  twitter: { card: "summary_large_image" },
   title: {
     default: "Vishwath Narayana — Data engineer, photographer, writer",
     template: "%s — Vishwath Narayana",

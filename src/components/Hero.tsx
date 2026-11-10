@@ -10,6 +10,13 @@ export default function Hero() {
       </div>
 
       <div className="px-5 pb-6 md:px-10 md:pb-9">
+        <p className="mb-3 inline-flex items-center gap-2.5 font-mono text-xs md:mb-1 md:text-sm">
+          <span aria-hidden className="relative flex size-2">
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-fg opacity-50" />
+            <span className="relative inline-flex size-2 rounded-full bg-fg" />
+          </span>
+          Open to data engineering roles, from 2027
+        </p>
         <h1 className="display text-[25vw] md:text-[14.4vw]">
           <span className="block md:inline">Vishwath</span>{" "}
           <span className="block md:inline">Narayana</span>

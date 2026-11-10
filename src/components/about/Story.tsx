@@ -85,11 +85,14 @@ export default function Story({ paragraphs, pics }: { paragraphs: string[]; pics
               data-i={i}
               className="display max-w-[22ch] text-[clamp(1.9rem,3.6vw,3.6rem)] !leading-[1.12] md:max-w-none"
             >
-              {t.split(" ").map((w, j) => (
-                <span key={j} data-w className="inline-block pr-[0.28em]">
-                  {w}
-                </span>
-              ))}
+              <span className="sr-only">{t}</span>
+              <span aria-hidden>
+                {t.split(" ").map((w, j) => (
+                  <span key={j} data-w className="inline-block pr-[0.28em]">
+                    {w}
+                  </span>
+                ))}
+              </span>
             </p>
           </div>
         ))}

@@ -32,8 +32,7 @@ export default function Nav() {
       />
       <div className="flex items-center justify-between px-5 py-4 md:px-10 md:py-6">
         <TransitionLink href="/" className="text-sm font-medium tracking-tight">
-          <span className="sm:hidden">Vishwath</span>
-          <span className="hidden sm:inline">Vishwath Narayana</span>
+          Vishwath<span className="hidden sm:inline">{" Narayana"}</span>
         </TransitionLink>
 
         <nav aria-label="Main" className="flex items-center gap-4 text-sm md:gap-8">

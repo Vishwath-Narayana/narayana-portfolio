@@ -203,3 +203,23 @@ body::after {
   font-display: swap;
   src: url("/fonts/caveat-500.woff2") format("woff2");
 }
+
+/* A packet of data that keeps travelling along a project's flow line. */
+.flow-packet {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--fg);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--fg) 14%, transparent);
+  animation: flow-packet 3.6s var(--ease-inout) 1.8s infinite;
+  opacity: 0;
+}
+@keyframes flow-packet {
+  0% { left: 0; opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { left: calc(100% - 7px); opacity: 0; }
+}

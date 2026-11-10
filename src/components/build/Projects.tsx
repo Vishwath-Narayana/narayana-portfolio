@@ -7,16 +7,22 @@ export default function Projects() {
       <h2 data-reveal className="display max-w-[14em] text-balance text-[clamp(2rem,3.8vw,3.8rem)]">
         What I have built.
       </h2>
+      <p data-reveal className="mt-5 max-w-[46ch] text-base text-muted md:text-lg">
+        Three projects, one for each stage of the journey. The line under each name is how the data moves through it.
+      </p>
 
       <div className="mt-12 md:mt-20">
-        {projects.map((p) => (
+        {projects.map((p, i) => (
           <article key={p.name} className="pb-16 md:pb-28">
             <div data-draw className="h-px w-full bg-fg" />
 
             <div className="grid gap-10 pt-7 md:grid-cols-2 md:gap-16 md:pt-9">
               <header className="md:sticky md:top-24 md:self-start">
-                <p data-reveal className="text-sm text-muted">
-                  {p.kind}
+                <p data-reveal className="flex items-baseline gap-3 text-sm text-muted">
+                  <span className="font-mono text-xs">
+                    {String(i + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
+                  </span>
+                  <span>{p.kind}</span>
                 </p>
                 <h3 data-reveal className="display mt-3 text-balance text-[clamp(2.4rem,4.8vw,4.8rem)]">
                   {p.name}
@@ -55,6 +61,7 @@ export default function Projects() {
                   <div className="relative">
                     <div aria-hidden className="absolute inset-x-0 top-[5px] h-px bg-line" />
                     <div aria-hidden data-flow-track className="absolute inset-x-0 top-[5px] h-px bg-fg" />
+                    <span aria-hidden className="flow-packet" />
                     <ol className="relative flex justify-between gap-2">
                       {p.shape.map((part) => (
                         <li key={part} data-flow-node className="flex flex-col items-start gap-3 last:items-end">

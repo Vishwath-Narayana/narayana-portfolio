@@ -42,6 +42,9 @@ export default async function Page({ params }: Props) {
         <Link href="/frame" className="link-line pb-0.5">
           Close
         </Link>
+        <p className="font-mono text-xs text-muted">
+          {String(i + 1).padStart(2, "0")} / {photos.length}
+        </p>
         <div className="flex gap-6">
           <Link href={`/frame/${prev.id}`} className="link-line pb-0.5">
             Previous

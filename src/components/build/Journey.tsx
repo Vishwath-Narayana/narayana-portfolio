@@ -16,7 +16,7 @@ export default function Journey() {
         <div aria-hidden data-line className="absolute bottom-0 left-[3px] top-2 w-px bg-fg" />
 
         <ol className="space-y-14 md:space-y-24">
-          {journey.map((stage) => (
+          {journey.map((stage, i) => (
             <li
               key={stage.name}
               className="relative grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] md:gap-16"
@@ -24,6 +24,7 @@ export default function Journey() {
               <span aria-hidden className="absolute -left-7 top-[0.55rem] size-[7px] rounded-full bg-fg md:-left-10" />
               <div>
                 <p data-reveal className="text-sm text-muted">
+                  <span className="mr-3 font-mono text-xs">{String(i + 1).padStart(2, "0")}</span>
                   {stage.period}
                 </p>
                 <h2 data-reveal className="display mt-2 text-[clamp(2.4rem,5vw,5rem)]">

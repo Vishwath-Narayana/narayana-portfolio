@@ -78,9 +78,9 @@ export default function Page() {
             {identity}
           </p>
 
-          <dl data-reveal className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-line py-5 md:mt-12 md:grid-cols-4">
+          <dl data-reveal className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-line py-5 md:mt-12 md:grid-cols-3 xl:grid-cols-5">
             {facts.map((f) => (
-              <div key={f.label}>
+              <div key={f.label} className="last:col-span-2 md:last:col-span-1">
                 <dt className="font-mono text-[0.68rem] uppercase tracking-[0.1em] text-muted">{f.label}</dt>
                 <dd className="mt-1.5 text-sm md:text-base">{f.text}</dd>
               </div>

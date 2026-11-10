@@ -1,13 +1,14 @@
 /** Every fact here comes from the resume or from what Vishwath told me. */
 
 export const identity =
-  "Final-year B.Tech in Computer Science at KITS Warangal, graduating in 2027. I build data pipelines on AWS, and I am looking for data engineering roles.";
+  "Final-year B.Tech in Computer Science at KITS Warangal, graduating in 2027, and president of the college's CSE Association. I build data pipelines on AWS, and I am looking for data engineering roles.";
 
 /** The four things a visitor wants first, read at a glance. */
 export const facts = [
   { label: "Based in", text: "Warangal, India" },
   { label: "Studying", text: "B.Tech CSE, KITSW" },
   { label: "Focus", text: "Data engineering" },
+  { label: "Leading", text: "President, CSE Association" },
   { label: "Status", text: "Open to roles, 2027" },
 ];
 

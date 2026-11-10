@@ -70,15 +70,19 @@ export default function Nav() {
         }`}
       >
         <div className="flex items-center justify-between px-5 py-4 md:px-10 md:py-6">
-          <TransitionLink href="/" aria-label="Vishwath Narayana, home" className="group text-sm font-medium tracking-tight">
+          <TransitionLink
+            href="/"
+            aria-label="Vishwath Narayana, home"
+            className="group font-serif text-[1.25rem] leading-none tracking-[-0.01em] md:text-[1.6rem]"
+          >
             <Roll>Vishwath</Roll>
-            <span className="hidden sm:inline">
+            <span className="hidden italic sm:inline">
               {" "}
               <Roll>Narayana</Roll>
             </span>
           </TransitionLink>
 
-          <nav aria-label="Main" className="flex items-center gap-5 text-sm md:gap-8">
+          <nav aria-label="Main" className="flex items-center gap-4 font-mono text-[0.64rem] uppercase tracking-[0.1em] sm:gap-5 sm:tracking-[0.14em] md:gap-9 md:text-[0.72rem]">
             {links.map((link, i) => {
               const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
               return (
@@ -95,7 +99,7 @@ export default function Nav() {
                     }`}
                   />
                   <Roll>{link.label}</Roll>
-                  <span aria-hidden className="relative -top-[0.5em] ml-1 hidden font-mono text-[0.6rem] opacity-50 sm:inline">
+                  <span aria-hidden className="ml-1.5 hidden opacity-45 sm:inline">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </TransitionLink>
